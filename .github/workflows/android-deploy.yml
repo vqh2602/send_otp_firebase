@@ -34,8 +34,41 @@ jobs:
           name: release-apk
           path: build/app/outputs/apk/release/app-release.apk
   #CD
-  deploy_android:
-    name: Deploying to playstore
+  # deploy_android:
+  #   name: Deploying to playstore
+  #   runs-on: ubuntu-latest
+  #   needs: [build_android]
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #     - name: Setup Java
+  #       uses: actions/setup-java@v1
+  #       with:
+  #         java-version: 12.x
+  #     - name: Decrypt Android keys
+  #       run: sh ./.github/scripts/decrypt_secret.sh
+  #       env:
+  #         ANDROID_KEYS_ZIP_PASSPHRASE: ${{ secrets.ANDROID_KEYS_ZIP_PASSPHRASE }}
+  #     - name: Setup Flutter
+  #       uses: subosito/flutter-action@v1
+  #       # with:
+  #       #   flutter-version: 2.0.6
+  #     - run: flutter pub get
+  #     - run: flutter build apk --release
+  #     - name: Upload artifact to Github
+  #       uses: actions/upload-artifact@v1
+  #       with:
+  #         name: release-apk
+  #         path: build/app/outputs/apk/release/app-release.apk
+  #     - name: Run Fastlane
+  #       uses: maierj/fastlane-action@v1.4.0
+  #       with:
+  #         lane: closed_beta
+  #         subdirectory: android
+
+          #CD
+  deploy_android_aab:
+    name: Deploying to playstore aab
     runs-on: ubuntu-latest
     needs: [build_android]
     steps:
@@ -54,7 +87,7 @@ jobs:
         # with:
         #   flutter-version: 2.0.6
       - run: flutter pub get
-      - run: flutter build apk --release
+      - run: flutter build appbundle --release
       - name: Upload artifact to Github
         uses: actions/upload-artifact@v1
         with:
