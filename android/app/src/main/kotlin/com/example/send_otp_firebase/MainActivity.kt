@@ -1,4 +1,4 @@
-package com.example.send_otp_firebase
+package com.vqh2602.send_otp_firebase
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:792037978617:android:667d3357c598f48e50cd28",
         "android_client_info": {
-          "package_name": "com.example.send_otp_firebase"
+          "package_name": "com.vqh2602.send_otp_firebase"
         }
       },
       "oauth_client": [
