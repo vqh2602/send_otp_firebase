@@ -21,8 +21,8 @@ jobs:
           ANDROID_KEYS_SECRET_PASSPHRASE: ${{ secrets.ANDROID_KEYS_SECRET_PASSPHRASE }}
       - name: Setup Flutter
         uses: subosito/flutter-action@v1
-        with:
-          flutter-version: 2.0.1
+        # with:
+        #   flutter-version: 2.0.1
       - name: Install Flutter dependencies
         run: flutter pub get
         # Add build runner commands here if you have any
